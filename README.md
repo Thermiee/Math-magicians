@@ -37,7 +37,7 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 # Author
 **Emmanuel Jolugbo**
-- GitHub: [@levy002](https://github.com/Thermiee)
+- GitHub: [@Thermiee](https://github.com/Thermiee)
 
 ## :handshake: Contributing
 Contributions, issues, and feature requests are welcome!
