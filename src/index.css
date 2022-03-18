@@ -1,27 +1,91 @@
-body {
+* {
+  padding: 0;
   margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family:
-    source-code-pro,
-    Menlo,
-    Monaco,
-    Consolas,
-    'Courier New',
-    monospace;
+.calculator {
+  height: 730px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calculator__view {
+  background-color: #56595dd0;
+  height: 140px;
+  width: 80%;
+  margin-top: 10px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.calculator__view__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator__view > h1 {
+  color: white;
+  float: right;
+  margin: 20px;
+  font-size: 6pc;
+  font-weight: 300;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.calculator__rows {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.calculator__row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator__greyButton {
+  height: 80px;
+  width: 100px;
+  border: none;
+  outline: none;
+  font-size: 27px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator__greyButtonZero {
+  height: 80px;
+  width: 200px;
+  border: none;
+  outline: none;
+  font-size: 27px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calculator__orangeButton {
+  height: 80px;
+  width: 100px;
+  border: none;
+  outline: none;
+  background-color: #f49d31;
+  color: white;
+  font-size: 27px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
