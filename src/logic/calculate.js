@@ -1,8 +1,7 @@
-import Big from 'big.js';
 import operate from './operate';
 
 function isNumber(item) {
-  return /[0-9]+/.test(item);
+  return item.match(/[0-9]+/);
 }
 
 export default function calculate(obj, buttonName) {
@@ -21,15 +20,14 @@ export default function calculate(obj, buttonName) {
 
     if (obj.operation) {
       if (obj.next) {
-        return { next: obj.next + buttonName };
+        return { ...obj, next: obj.next + buttonName };
       }
-      return { next: buttonName };
+      return { ...obj, next: buttonName };
     }
 
     if (obj.next) {
-      const next = obj.next === '0' ? buttonName : obj.next + buttonName;
       return {
-        next,
+        next: obj.next + buttonName,
         total: null,
       };
     }
@@ -39,35 +37,23 @@ export default function calculate(obj, buttonName) {
     };
   }
 
-  if (buttonName === '%') {
-    if (obj.operation && obj.next) {
-      const result = operate(obj.total, obj.next, obj.operation);
-      return {
-        total: Big(result)
-          .div(Big('100'))
-          .toString(),
-        next: null,
-        operation: null,
-      };
-    }
-    if (obj.next) {
-      return {
-        next: Big(obj.next)
-          .div(Big('100'))
-          .toString(),
-      };
-    }
-    return {};
-  }
-
   if (buttonName === '.') {
     if (obj.next) {
       if (obj.next.includes('.')) {
+        return { ...obj };
+      }
+      return { ...obj, next: `${obj.next}.` };
+    }
+    if (obj.operation) {
+      return { next: '0.' };
+    }
+    if (obj.total) {
+      if (obj.total.includes('.')) {
         return {};
       }
-      return { next: `${obj.next}.` };
+      return { total: `${obj.total}.` };
     }
-    return { next: '0.' };
+    return { total: '0.' };
   }
 
   if (buttonName === '=') {
@@ -78,20 +64,29 @@ export default function calculate(obj, buttonName) {
         operation: null,
       };
     }
+
     return {};
   }
 
   if (buttonName === '+/-') {
     if (obj.next) {
-      return { next: (-1 * parseFloat(obj.next)).toString() };
+      return { ...obj, next: (-1 * parseFloat(obj.next)).toString() };
     }
     if (obj.total) {
-      return { total: (-1 * parseFloat(obj.total)).toString() };
+      return { ...obj, total: (-1 * parseFloat(obj.total)).toString() };
     }
     return {};
   }
 
+  if (!obj.next && obj.total && !obj.operation) {
+    return { ...obj, operation: buttonName };
+  }
+
   if (obj.operation) {
+    if (obj.total && !obj.next) {
+      return { ...obj, operation: buttonName };
+    }
+
     return {
       total: operate(obj.total, obj.next, obj.operation),
       next: null,
