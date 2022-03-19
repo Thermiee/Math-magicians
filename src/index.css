@@ -1,91 +1,49 @@
-* {
-  padding: 0;
-  margin: 0;
+button {
+  padding: 1.5rem 2.5rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid rgb(241, 238, 238);
 }
 
-.calculator {
-  height: 730px;
-  width: 500px;
+.calculator-body {
   display: flex;
-  flex-direction: column;
+  flex-flow: column;
+  list-style-type: none;
+  padding: 20px;
 }
 
-.calculator__view {
-  background-color: #56595dd0;
-  height: 140px;
-  width: 80%;
-  margin-top: 10px;
-  overflow: hidden;
-  overflow-x: auto;
+.calculator-screen {
+  text-align: end;
+  padding: 30px;
+  background-color: rgb(241, 238, 238);
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
-.calculator__view__container {
-  width: 100%;
+.calculator-keyboard {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.calculator__view > h1 {
-  color: white;
-  float: right;
-  margin: 20px;
-  font-size: 6pc;
-  font-weight: 300;
-  text-align: right;
-  margin-top: 10px;
-}
-
-.calculator__rows {
-  display: flex;
-  flex-direction: column;
   width: 100%;
 }
 
-.calculator__row {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+.calculator-digits {
+  display: grid;
+  flex: 1;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-.calculator__greyButton {
-  height: 80px;
-  width: 100px;
-  border: none;
-  outline: none;
-  font-size: 27px;
-  font-weight: 500;
-  cursor: pointer;
+.calculator-operators {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-flow: column;
 }
 
-.calculator__greyButtonZero {
-  height: 80px;
-  width: 200px;
-  border: none;
-  outline: none;
-  font-size: 27px;
-  font-weight: 500;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.calculator-operators button {
+  flex: 1;
+  margin: 1px;
+  background-color: orange;
+  border: 1px hidden;
 }
 
-.calculator__orangeButton {
-  height: 80px;
-  width: 100px;
-  border: none;
-  outline: none;
-  background-color: #f49d31;
-  color: white;
-  font-size: 27px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.calculator-digits button:nth-last-child(2) {
+  grid-column: span 2;
 }
