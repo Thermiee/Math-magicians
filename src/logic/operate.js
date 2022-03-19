@@ -13,11 +13,11 @@ export default function operate(numberOne, numberTwo, operation) {
     return one.times(two).toString();
   }
   if (operation === '÷') {
-    if (two === '0') {
-      alert('Cannot divide by 0 error');
-      return '0';
+    try {
+      return one.div(two).toString();
+    } catch (err) {
+      return 'Error! Cannot divide by 0';
     }
-    return one.div(two).toString();
   }
   throw Error(`Unknown operation '${operation}'`);
 }
