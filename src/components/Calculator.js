@@ -1,52 +1,48 @@
-import React from 'react';
-import '../index.css';
+import React, { Component } from 'react';
+import calculate from '../logic/calculate';
 
-export default class Calculator extends React.Component {
+const operators = ['÷', 'x', '-', '+', '='];
+const digits = ['AC', '+/-', '%', '7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.'];
+
+class Calculator extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      next: '',
+      total: '',
+      operation: '',
+    };
+  }
+
+  handleClick = (btn) => {
+    this.setState((state) => calculate(
+      {
+        next: state.next,
+        total: state.total,
+        operation: state.operation,
+      },
+      btn,
+    ));
   }
 
   render() {
+    const { total, next } = this.state;
     return (
-      <div className="calculator">
-        <div className="calculator__view__container">
-          <div className="calculator__view">
-            <h1 className="calculator__view__h1">0</h1>
+      <ul className="calculator-body">
+        <li className="calculator-screen">
+          {next || total || '0'}
+        </li>
+        <li className="calculator-keyboard">
+          <div className="calculator-digits">
+            {digits.map((btn) => <button onClick={() => this.handleClick(btn)} type="button" key={btn}>{ btn }</button>) }
           </div>
-        </div>
-        <div className="calculator__rows">
-          <div className="calculator__row">
-            <button type="button" className="calculator__greyButton">AC</button>
-            <button type="button" className="calculator__greyButton">+/-</button>
-            <button type="button" className="calculator__greyButton">%</button>
-            <button type="button" className="calculator__orangeButton">÷</button>
+          <div className="calculator-operators">
+            {operators.map((btn) => <button onClick={() => this.handleClick(btn)} type="button" key={btn}>{ btn }</button>) }
           </div>
-          <div className="calculator__row">
-            <button type="button" className="calculator__greyButton">7</button>
-            <button type="button" className="calculator__greyButton">8</button>
-            <button type="button" className="calculator__greyButton">9</button>
-            <button type="button" className="calculator__orangeButton">x</button>
-          </div>
-          <div className="calculator__row">
-            <button type="button" className="calculator__greyButton">4</button>
-            <button type="button" className="calculator__greyButton">5</button>
-            <button type="button" className="calculator__greyButton">6</button>
-            <button type="button" className="calculator__orangeButton ">—</button>
-          </div>
-          <div className="calculator__row">
-            <button type="button" className="calculator__greyButton">1</button>
-            <button type="button" className="calculator__greyButton">2</button>
-            <button type="button" className="calculator__greyButton">3</button>
-            <button type="button" className="calculator__orangeButton ">+</button>
-          </div>
-          <div className="calculator__row">
-            <button type="button" className="calculator__greyButtonZero">0</button>
-            <button type="button" className="calculator__greyButton">.</button>
-            <button type="button" className="calculator__orangeButton">=</button>
-          </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     );
   }
 }
+
+export default Calculator;
