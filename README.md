@@ -2,6 +2,12 @@
 # Math Magicians
 Math Magician app basic setup.
 
+![screenshot](./app_screenshot.png)
+
+## Live Demo
+
+[Live Demo Link](https://thermiee.github.io/Math-magicians/)
+
 # Built with
 - React.js
 - CSS
