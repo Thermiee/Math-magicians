@@ -1,9 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 button {
-  padding: 1.5rem 2.5rem;
+  padding: 1.5rem 1.5rem;
   font-size: 1.3rem;
   font-weight: bold;
   background-color: #fff;
   border: 1px solid rgb(241, 238, 238);
+}
+
+.calc-group {
+  display: flex;
+  justify-content: space-around;
+  height: 85vh;
+}
+
+.calc-text p {
+  font-size: larger;
+  text-align: center;
+  padding: 20px;
+}
+
+.calc-text {
+  align-self: center;
+  text-transform: uppercase;
+  padding: 20px;
+  background-color: antiquewhite;
 }
 
 .calculator-body {
@@ -46,4 +70,79 @@ button {
 
 .calculator-digits button:nth-last-child(2) {
   grid-column: span 2;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style-type: none;
+  padding: 16px;
+  justify-content: space-between;
+  background-color: rgb(245, 222, 179);
+}
+
+.nav-logo a {
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: larger;
+  margin: 20px;
+}
+
+.nav-item a {
+  color: #000;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.home {
+  display: flex;
+  padding: 12px;
+  justify-content: space-around;
+  height: 81vh;
+}
+
+.home img {
+  width: 50%;
+}
+
+.home-text h1 {
+  text-align: center;
+}
+
+.home-text p {
+  font-size: 20px;
+  padding: 20px;
+}
+
+.footer {
+  display: flex;
+  list-style-type: none;
+  padding: 16px;
+  background-color: rgb(245, 222, 179);
+}
+
+.quotes-Container {
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+}
+
+.quotes-Container li {
+  display: flex;
+  flex-flow: column;
+  gap: 3px;
+}
+
+.quotes-Container li p {
+  margin: 0;
+}
+
+.quote {
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-style: italic;
 }
