@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/calculator" caseSensitive={false} element={<Calculator />} />
         <Route path="/quotes" caseSensitive={false} element={<Quotes />} />
-        <Route path="/" caseSensitive={false} element={<Home />} />
+        <Route exact path="/" caseSensitive={false} element={<Home />} />
       </Routes>
       <Footer />
     </Router>
