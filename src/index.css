@@ -120,6 +120,8 @@ footer {
   padding: 16px;
   background-color: rgb(245, 222, 179);
   bottom: 0;
+  position: fixed;
+  width: 99%;
 }
 
 .quotes-Container {
