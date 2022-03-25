@@ -6,7 +6,8 @@ Math Magician app basic setup.
 
 ## Live Demo
 
-[Live Demo Link](https://thermiee.github.io/Math-magicians/)
+[Heroku Demo Link](https://thermiee-math.herokuapp.com)
+[Netlify Demo Link](https://thermiee-math.herokuapp.com)
 
 # Built with
 - React.js
