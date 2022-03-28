@@ -6,7 +6,9 @@ Math Magician app basic setup.
 
 ## Live Demo
 
-[Live Demo Link](https://thermiee.github.io/Math-magicians/)
+[Heroku Demo Link](https://thermiee-math.herokuapp.com)
+
+[Netlify Demo Link](https://brilliant-semifreddo-5fcc98.netlify.app/)
 
 # Built with
 - React.js
@@ -50,6 +52,4 @@ Contributions, issues, and feature requests are welcome!
 ## Show your support
 Give a :star:️ if you like this project!
 ## Acknowledgments
-
-Math magicians app
-Web site created using create-react-app
+- Microverse
